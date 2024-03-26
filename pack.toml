@@ -1,0 +1,13 @@
+name = "createing"
+author = "raftario"
+version = "1.0.0"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "3b714765d2a4314ff991172abd9131eef85a99f6bb532a79b0b317122958bf08"
+
+[versions]
+fabric = "0.15.7"
+minecraft = "1.20.1"

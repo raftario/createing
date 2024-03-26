@@ -1,0 +1,35 @@
+name: Build & Publish
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: ^1.19.0
+      - run: go install github.com/packwiz/packwiz@latest
+
+      - name: Refresh & Build
+        run: |
+          packwiz refresh
+          packwiz modrinth export
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./
+
+  publish:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4
