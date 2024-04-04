@@ -32,12 +32,12 @@ metafile = true
 
 [[files]]
 file = "mods/create-goggles.pw.toml"
-hash = "8632b0200d1a2d33dad115b6dda6ba96297fd3e402be07e07bfe8b877dbfb151"
+hash = "63181126ca8ff3989e9a0e91ce01121545e26e4a9ca8cbe4e6681395c92b1edd"
 metafile = true
 
 [[files]]
 file = "mods/create-utilities.pw.toml"
-hash = "314e96812f627138ef906a469059897ecbb0eae936da8b38640805727b20a097"
+hash = "e0c3edb69b3abaf660507127e993d2880faf30ddead8a42391c1d9571c467784"
 metafile = true
 
 [[files]]
@@ -87,7 +87,7 @@ metafile = true
 
 [[files]]
 file = "mods/immediatelyfast.pw.toml"
-hash = "b411b04e1dace15c7fc1465bb161c8e621750b1577282e0918f956212a57e864"
+hash = "bd0e1bfaa16148cd114e33d11ec8f742979ec5b9372f6baa6a335a316659e70e"
 metafile = true
 
 [[files]]
@@ -152,7 +152,7 @@ metafile = true
 
 [[files]]
 file = "mods/open-parties-and-claims.pw.toml"
-hash = "977fdb7daeaa4a15d68e8509ebe774523b8d98250efeeb67f3721dd3ee5bc652"
+hash = "a8e78756fab40c2ca32794f30aa1c8188e721c463f6c797e1b3b7d972ae0d8b1"
 metafile = true
 
 [[files]]
@@ -172,7 +172,7 @@ metafile = true
 
 [[files]]
 file = "mods/xaeros-minimap.pw.toml"
-hash = "e1d62a3cb9200b6bffd7f86431ef69ce459ab2c0866aa1255bb1ac60e06aae17"
+hash = "97fa9fb8210d11b8d9a08098b186f3882eb1f47dc5e20e3b5bac4952dddb2d50"
 metafile = true
 
 [[files]]
