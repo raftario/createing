@@ -9,7 +9,7 @@ jobs:
 
       - name: Build Instance
         run: |
-          MINECRAFT_VERSION=$(yq .versions.mincraft pack.toml)
+          MINECRAFT_VERSION=$(yq .versions.minecraft pack.toml)
           FABRIC_VERSION=$(yq .versions.fabric pack.toml)
           mkdir instance
 
@@ -41,7 +41,7 @@ jobs:
 
           curl -fsSL https://github.com/packwiz/packwiz-installer-bootstrap/releases/download/v0.0.3/packwiz-installer-bootstrap.jar -o instance/packwiz-installer-bootstrap.jar
 
-          zip instance.zip instance/*
+          zip -9 instance.zip instance/*
           rm -rf instance
 
       - uses: actions/upload-pages-artifact@v3
