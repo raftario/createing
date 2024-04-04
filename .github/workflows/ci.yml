@@ -6,15 +6,43 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-go@v5
-        with:
-          go-version: ^1.19.0
-      - run: go install github.com/packwiz/packwiz@latest
 
-      - name: Refresh & Build
+      - name: Build Instance
         run: |
-          packwiz refresh
-          packwiz modrinth export
+          MINECRAFT_VERSION=$(yq .versions.mincraft pack.toml)
+          FABRIC_VERSION=$(yq .versions.fabric pack.toml)
+          mkdir instance
+
+          tee instance/mmc-pack.json << EOF
+          {
+            "components": [
+              {
+                "important": true,
+                "uid": "net.minecraft",
+                "version": "${MINECRAFT_VERSION}"
+              },
+              {
+                "uid": "net.fabricmc.fabric-loader",
+                "version": "${FABRIC_VERSION}"
+              }
+            ],
+            "formatVersion": 1
+          }
+          EOF
+
+          tee instance/instance.cfg << EOF
+          [General]
+          ConfigVersion=1.2
+          name=Create ${MINECRAFT_VERSION}
+          InstanceType=OneSix
+          PreLaunchCommand=$INST_JAVA -jar $INST_DIR/packwiz-installer-bootstrap.jar https://raftar.io/createing/pack.toml
+          OverrideCommands=true
+          EOF
+
+          curl -fsSL https://github.com/packwiz/packwiz-installer-bootstrap/releases/download/v0.0.3/packwiz-installer-bootstrap.jar -o instance/packwiz-installer-bootstrap.jar
+
+          zip instance.zip instance/*
+          rm -rf instance
 
       - uses: actions/upload-pages-artifact@v3
         with:
