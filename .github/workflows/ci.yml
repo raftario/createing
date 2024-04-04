@@ -35,7 +35,7 @@ jobs:
           ConfigVersion=1.2
           name=Create ${MINECRAFT_VERSION}
           InstanceType=OneSix
-          PreLaunchCommand=$INST_JAVA -jar $INST_DIR/packwiz-installer-bootstrap.jar https://raftar.io/createing/pack.toml
+          PreLaunchCommand=\$INST_JAVA -jar \$INST_DIR/packwiz-installer-bootstrap.jar https://raftar.io/createing/pack.toml
           OverrideCommands=true
           EOF
 
